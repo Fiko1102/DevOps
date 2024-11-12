@@ -1,5 +1,0 @@
-Hello from Oleksii Laptop
-
-Hi, it's my branch of the code 
-
-I don't understand why i have access to merge main branch?
