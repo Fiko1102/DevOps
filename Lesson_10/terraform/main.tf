@@ -10,9 +10,9 @@ terraform {
     }
   }
   required_version = ">= 1.8"
-# enable remote TF state
+#### enable remote TF state
   backend "s3" {
-  bucket         = "oleksiipasichnyk-terraformstate-devops-oct-2024"
+  bucket         = "#######" # please use your bucket name!!!
   key            = "deveop-lessons/tf-test-state.tfstate"  # Path to the state file in the bucket
   region         = "us-east-1"
   }
