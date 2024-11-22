@@ -12,3 +12,7 @@ Repository for the DevOps related infrastructure setup.
 4. `git rebase main (conflicts possible)`
 5. after you finish 
  `git push --force`
+
+
+MIT course CS50 
+```https://pll.harvard.edu/course/cs50-introduction-computer-science``
