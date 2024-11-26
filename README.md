@@ -16,3 +16,24 @@ Repository for the DevOps related infrastructure setup.
 
 MIT course CS50 
 ```https://pll.harvard.edu/course/cs50-introduction-computer-science``
+
+Aliases for the course
+
+
+```
+#AWS aliases
+alias awswhoami='aws sts get-caller-identity'
+alias awsprofilelist='aws configure list-profiles'
+#Terraform aliases
+alias tf='terraform'
+alias k='kubectl'
+alias kl='kubectl logs'
+alias kd='kubectl delete'
+alias kg='kubectl get'
+alias kgd='kubectl get nodes'
+alias kga='kubectl get all'
+alias kgp='kubectl get pods'
+alias kgs='kubectl get services'
+alias kgd='kubectl get deployments'
+alias kge='kubectl get events --sort-by=.metadata.creationTimestamp'
+```
