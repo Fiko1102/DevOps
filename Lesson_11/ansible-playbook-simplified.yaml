@@ -1,0 +1,19 @@
+---
+- hosts: all
+  become: true
+
+  tasks:
+    - name: Update packages
+      ansible.builtin.shell: apt-get update -y
+    - name: Install Nginx
+      ansible.builtin.shell: apt-get install nginx -y
+    - name: Start Nginx
+      ansible.builtin.shell: systemctl start nginx
+    - name: Enable Nginx
+      ansible.builtin.shell: systemctl enable nginx
+    - name: Copy the index.html file to the instance
+      copy:
+        src: ./index.html
+        dest: /var/www/html/index.nginx-debian.html
+    - name: Restart Nginx
+      ansible.builtin.shell: systemctl restart nginx

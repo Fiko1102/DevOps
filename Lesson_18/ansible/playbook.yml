@@ -1,0 +1,67 @@
+---
+- name: Install and configure Nginx
+  hosts: all
+  become: true
+  user: ubuntu
+  become_user: root
+
+  tasks:
+    - name: Update and upgrade system packages
+      apt:
+        update_cache: yes
+        upgrade: dist
+
+    - name: Install Nginx
+      apt:
+        name: nginx
+        state: present
+
+    - name: Start and enable Nginx service
+      service:
+        name: nginx
+        state: started
+        enabled: true
+
+    - name: Create custom Nginx test page
+      copy:
+        dest: /var/www/html/index.html
+        content: |
+          <!DOCTYPE html>
+           <html>
+           <head>
+             <title>Christmas Cats</title>
+             <style>
+               body {
+                 background-color: #F0F0F0;
+                 background-image: url('https://www.thesprucepets.com/thmb/pBkBR3Xr-f2U4_Z2Ao5zLyxESTA=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/emy2g-59ebea28d088c000115ccd64.jpg');
+                 background-size: cover;
+                 font-family: 'Arial', sans-serif;
+                 color: #333333;
+               }
+               h1 {
+                 text-align: center;
+                 color: #D64D4D;
+               }
+               p {
+                 font-size: 24px;
+                 text-align: center;
+                 color: #0A7029;
+               }
+               .ip-address {
+                 font-weight: bold;
+               }
+             </style>
+           </head>
+           <body>
+             <h1>Welcome to Nginx!</h1>
+             <p>Your server's IP address is: <span class="ip-address">{{ ansible_default_ipv4.address }}</span></p>
+           </body>
+           </html>
+        owner: www-data
+        group: www-data
+        mode: '0644'
+
+    - name: Restart Nginx to apply changes
+      service:
+        name: nginx
+        state: restarted
