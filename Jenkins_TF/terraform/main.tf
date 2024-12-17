@@ -12,8 +12,8 @@ terraform {
   required_version = ">= 1.8"
   #### enable remote TF state
   backend "s3" {
-    bucket = "" # please use your bucket name!!!
-    key    = "jenkins/tf-test-state.tfstate"     # Path to the state file in the bucket
+    bucket = ""                              # please use your bucket name!!!
+    key    = "jenkins/tf-test-state.tfstate" # Path to the state file in the bucket
     region = "us-east-1"
   }
 }
@@ -32,7 +32,7 @@ resource "aws_instance" "test_t2_micro" {
     volume_type = "gp3"
   }
   tags = {
-    Name = "My jenkins server"
+    Name = "My jenkins serverpws"
   }
 }
 
